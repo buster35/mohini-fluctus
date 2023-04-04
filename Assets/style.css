@@ -1,0 +1,26 @@
+* {
+  padding: 70px 0;
+  text-align: center;
+}
+
+
+body {
+  font-size: 62.5%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  line-height: 150%;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+
+.directions {
+  content: 10px;
+}
+/* building a slider button? look at lesson 13 for positioning rules */

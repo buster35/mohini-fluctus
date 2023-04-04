@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mock Coding Assessment</title>
-  <link rel="stylesheet" href="./Assets/reset.css" />
-  <link rel="stylesheet" href="./Assets/style.css" />
-</head>
-<body>
-  <header class="title">
-    <h1>Coding Quiz</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Coding Assessment</title>
+    <link rel="stylesheet" href="./Assets/reset.css" />
+    <link rel="stylesheet" href="./Assets/style.css" />
+  </head>
+  <body>
+    <header class="title">
+      <h1>Coding Quiz</h1>
+    </header>
     <div class="directions">
-      <p>This timed quiz is only masquerading as a coding quiz. It's actually a quiz about _____. Before you click the Start button, note that your score will be tallied and you will be able to see the results at the end, and will be able to leave your initials on the leaderboard! However, answer a question wrong and the countdown timer will knock off a few seconds. Good luck!</p>
+      <p>
+        This timed quiz is only masquerading as a coding quiz.<br />It's
+        actually a quiz about _____. Before you click the Start button, note
+        that your score will be tallied and you will be able to see the results
+        at the end, and will be able to leave your initials on the leaderboard!
+        However, answer a question wrong and the countdown timer will knock off
+        a few seconds. Good luck!
+      </p>
     </div>
-  </header>
-  <div class="button">
-    <button id="start" type="button">Let's Start!</button>
-  </div>
-  <script src="Assets/script.js"></script>
-</body>
+
+    <div class="button">
+      <button id="start" type="button">Let's Start!</button>
+    </div>
+    <form id="quiz">
+      <!-- one form element, but I can switch in subsequent quiz questions via JS? -->
+      <button id="submit">Submit</button>
+    </form>
+    <script src="Assets/script.js"></script>
+  </body>
 </html>
