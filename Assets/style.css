@@ -1,6 +1,6 @@
 * {
   text-align: center;
-  background-color: antiquewhite;
+  background-color: rgb(158, 185, 219);
 }
 
 
@@ -16,12 +16,12 @@ body {
   margin: 40px auto;
   font-size: 4rem;
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .directions p {
   content: 10px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 
   margin: 40px auto;
   width: 50%;
@@ -34,23 +34,24 @@ body {
 }
 
 .container {
-  width: 25%;
-  height: 500px;
+  position: relative;
+  width: auto;
+  height: 400px;
 }
 
-#start {
-  font-size: 24px;
+#submit, #start {
+  font-size: 20px;
   border-radius: 12px;
   padding: 14px 40px;
   cursor: pointer;
 }
 
 #submit {
-  font-size: 24px;
-  border-radius: 12px;
-  padding: 14px 40px;
-  cursor: pointer;
+  position: absolute;
+  bottom: 0;
 }
+
+
 
 
 /* building a slider button? look at lesson 13 for positioning rules */
