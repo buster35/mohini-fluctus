@@ -12,31 +12,28 @@
     <header class="title">
       <h1>Coding Quiz</h1>
     </header>
-    <div class="timer">
-      
-    </div>
+    <div class="timer"></div>
     <div class="directions">
       <p>
         This timed quiz is only masquerading as a coding quiz.<br />It's
-        actually a quiz about _____. Before you click the Start button, note
+        actually a quiz about other stuff.<br />Before you click the Start button, note
         that your score will be tallied and you will be able to see the results
-        at the end, and will be able to leave your initials on the leaderboard!
+        at the end, and will be able to leave your initials on the leaderboard!<br /><span id = "warning">
         However, answer a question wrong and the countdown timer will knock off
-        a few seconds. Good luck!
+        a few seconds. Good luck!</span>
       </p>
     </div>
 
     <div id="container">
-
+      <div class="button">
+        <button id="start" type="button">Let's Start!</button>
+      </div>
+      <form id="quiz">
+        <!-- one form element, but I can switch in subsequent quiz questions via JS? -->
+        <button id="submit">Submit</button>
+      </form>
     </div>
 
-    <div class="button">
-      <button id="start" type="button">Let's Start!</button>
-    </div>
-    <form id="quiz">
-      <!-- one form element, but I can switch in subsequent quiz questions via JS? -->
-      <button id="submit">Submit</button>
-    </form>
     <script src="Assets/script.js"></script>
   </body>
 </html>

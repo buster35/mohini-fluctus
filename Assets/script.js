@@ -1,4 +1,4 @@
-
+let startBtn = document.querySelector("#start");
 
 
 
@@ -26,3 +26,11 @@
 // - present user with the next question, and repeat previous 5 steps for each question
 // - when all questions are answered or timer is zero -> end game -> function
 // - user is presented with form to save initials and score in a list -> eventlistener/function
+
+
+
+
+
+
+
+startBtn.addEventListener("click", function())
