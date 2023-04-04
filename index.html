@@ -11,8 +11,9 @@
   <body>
     <header class="title">
       <h1>Coding Quiz</h1>
+    <div></div>
     </header>
-    <div class="timer"></div>
+  
     <div class="directions">
       <p>
         This timed quiz is only masquerading as a coding quiz.<br />It's
@@ -22,13 +23,14 @@
         However, answer a question wrong and the countdown timer will knock off
         a few seconds. Good luck!</span>
       </p>
+      <div class="timer-box"><p><span id="time">0</span>  seconds remaining</p></div>
     </div>
 
     <div class="container">
       <div class="button">
         <button id="start" type="button">Let's Start!</button>
       </div>
-      <form id="quiz">
+      <form id="quiz" style=>
         <!-- one form element, but I can switch in subsequent quiz questions via JS? -->
       </form>
       <button id="submit">Submit</button>

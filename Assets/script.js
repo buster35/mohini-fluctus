@@ -1,11 +1,9 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
+let timeCount = document.querySelector("#time");
 
 
-let quizTimer = 0;
-
-
-
+let quizTimer;
 
 
 function startTimer () {
@@ -16,11 +14,21 @@ function showQuestion () {
 
 }
 
+function evalAnswer () {
 
+}
 
+function answerResponse () {
 
+}
 
+function reduceTime () {
 
+}
+
+function endGame () {
+
+}
 
 // - user arrives at the website and sees a central box with a start button below, a timer and high scores somewhere on the page -> create necessary html elements w/ classes or ids to access using js
 // - user starts the quiz by clicking the start button -> eventlistener
@@ -32,9 +40,15 @@ function showQuestion () {
 // - if question is wrong, timer is reduced by x amount -> function
 // - present user with the next question, and repeat previous 5 steps for each question
 // - when all questions are answered or timer is zero -> end game -> function
-// - user is presented with form to save initials and score in a list -> eventlistener/function
+// - **user is presented with form to save initials and score in a list -> eventlistener/function**
 
 
 
-clickBox.addEventListener("click", function())
+clickBox.addEventListener("click", function(e) {
+  if (e.target.matches(startBtn)) {
+    startTimer();
+  }
+})
+
+
 

@@ -3,12 +3,10 @@
   background-color: rgb(158, 185, 219);
 }
 
-
 body {
   font-size: 62.5%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-align: center;
-  height:auto;
+  height: auto;
 }
 
 .title {
@@ -20,12 +18,17 @@ body {
 }
 
 .directions p {
+  position: relative;
   content: 10px;
   font-size: 1.4rem;
-
   margin: 40px auto;
   width: 50%;
   line-height: 1.5;
+}
+
+.timer-box {
+  position: relative;
+
 }
 
 #warning {
@@ -35,8 +38,7 @@ body {
 
 .container {
   position: relative;
-  width: auto;
-  height: 400px;
+  height: 350px;
 }
 
 #submit, #start {
@@ -50,8 +52,3 @@ body {
   position: absolute;
   bottom: 0;
 }
-
-
-
-
-/* building a slider button? look at lesson 13 for positioning rules */
