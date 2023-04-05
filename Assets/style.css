@@ -37,6 +37,9 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   height: 350px;
   width: auto;
@@ -46,6 +49,11 @@ body {
 
 .answerBox {
   cursor: pointer;
+  font-size: 20px;
+  border-radius: 12px;
+  padding: 14px 40px;
+
+
 }
 
 #submit, #start {
@@ -56,6 +64,5 @@ body {
 }
 
 #submit {
-  position: absolute;
-  bottom: 0;
+  align-self: baseline;
 }

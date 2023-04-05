@@ -2,6 +2,8 @@ let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
 
+let box4 = document.querySelector("#box4");
+
 //Quiz Questions//
 let question1 = {
   question: "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom the referred to as Kramer. What is this character's first name?",
@@ -59,7 +61,7 @@ function startTimer () { //we want to start a countdown timer
   }, 1000) 
 };
 
-function showQuestion1 () {//simply add to the .container (somehow)
+function showQuestion1 () {
   let box1 = document.querySelector("#box1");
   box1.textContent = quizQuestions[0].question;//access the nested object
   
@@ -67,14 +69,11 @@ function showQuestion1 () {//simply add to the .container (somehow)
   box2.textContent = quizQuestions[0].answer1;
   let box3 = document.querySelector("#box3");
   box3.textContent = quizQuestions[0].answer2;
-  let box4 = document.querySelector("#box4");
+  
   box4.textContent = quizQuestions[0].answer3;
   let box5 = document.querySelector("#box5");
   box5.textContent = quizQuestions[0].answer4;
 
-  if (clickBox.target.matches(box4)) {
-    console.log("correct");
-  };
 };
 
 function evalAnswer () {
@@ -95,11 +94,15 @@ function endGame () {
 
 clickBox.addEventListener("click", function(e) {
   let click = e.target;
-  if (click.matches("#start")) { //could also declare/use a var.matches()//
+  if (click.matches("#start")) {
     startTimer();
-    showQuestion1();
-  }
-})
+    showQuestion1() 
+      if (click.matches("#box4")) {
+        console.log("correct");
+      };
+    };
+  });
+
 
 
 
