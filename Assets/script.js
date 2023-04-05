@@ -7,7 +7,7 @@ let question1 = {
   question: "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom they referred to as Kramer. What is this character's first name?",
   answer1: "Charles",
   answer2: "Robert",
-  answer3: "Cosmo", //this is correct
+  answer3: "Cosmo", //this is correct; can I put something in the object to signify this?
   answer4: "Kermit",
 };
 
@@ -59,19 +59,15 @@ function startTimer () { //we want to start a countdown timer
   }, 1000) 
 };
 
-function showQuestion1 () {
-  let box1 = document.querySelector("#box1");
-  box1.textContent = quizQuestions[0].question;//access the nested object
-
-  let box2 = document.querySelector("#box2");
-  box2.textContent = quizQuestions[0].answer1;
-  let box3 = document.querySelector("#box3");
-  box3.textContent = quizQuestions[0].answer2;
-  let box4 = document.querySelector("#box4");
-  box4.textContent = quizQuestions[0].answer3;
-  let box5 = document.querySelector("#box5");
-  box5.textContent = quizQuestions[0].answer4;
-
+function showQuestion () {
+ 
+  let text = "";
+  for (let i = 0; i < quizQuestions.length; i++) {//i want to use a for loop to list question by question from the array and after a click event occurs
+    text += quizQuestions[i];
+  }
+  
+  document.getElementsByClassName(".answerBox").innerHTML = text;
+  
 };
 
 function evalAnswer () {
@@ -94,9 +90,11 @@ clickBox.addEventListener("click", function(e) {
   let click = e.target;
   if (click.matches("#start")) {
     startTimer();
-    showQuestion1() }
-  else if (click.matches("#box4")) {
+    showQuestion() }
+  else if (click.matches(".answerBox")) { //correct button on quiz -> move to next question, analyze right/wrong, 
       console.log("correct");
+      evalAnswer();
+
     };
   });
 

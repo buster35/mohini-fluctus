@@ -63,3 +63,20 @@ TODO:// - timer starts -> function
 // - present user with the next question, and repeat previous 5 steps for each question
 // - when all questions are answered or timer is zero -> end game -> function
 // - **user is presented with form to save initials and score in a list -> eventlistener/function**
+
+
+
+
+
+
+ // let box1 = document.querySelector("#box1");
+  // box1.textContent = quizQuestions[0].question;//access the nested object
+
+  // let box2 = document.querySelector("#box2");
+  // box2.textContent = quizQuestions[0].answer1;
+  // let box3 = document.querySelector("#box3");
+  // box3.textContent = quizQuestions[0].answer2;
+  // let box4 = document.querySelector("#box4");
+  // box4.textContent = quizQuestions[0].answer3;
+  // let box5 = document.querySelector("#box5");
+  // box5.textContent = quizQuestions[0].answer4;
