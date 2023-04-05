@@ -41,6 +41,10 @@ body {
   height: 350px;
 }
 
+.answerbox {
+  
+}
+
 #submit, #start {
   font-size: 20px;
   border-radius: 12px;

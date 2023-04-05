@@ -44,3 +44,7 @@ localStorage.setItem
 localStorage.getItem
 
 
+{/* <button class="answerBox" type="button" data-number="1" data-state="hidden"></button>
+      <button class="answerBox" type="button" data-number="2" data-state="hidden"></button>
+      <button class="answerBox" type="button" data-number="3" data-state="hidden"></button>
+      <button class="answerBox" type="button" data-number="4" data-state="hidden"></button> */}
