@@ -58,8 +58,6 @@ function startTimer () { //we want to start a countdown timer
 };
 
 function showQuestion () {
-  let newElement = document.getElementById("box1");
-  newElement.textContent = 
 }
 
 function evalAnswer () {
