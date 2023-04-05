@@ -43,6 +43,8 @@ let question5 = {
   answer4: "Trick question; any method of ingesting coffee is the best!",
 }
 
+let quizQuestions = [question1, question2, question3, question4, question5]; //now we have an array of objects
+
 let quizTimer;
 
 function startTimer () { //we want to start a countdown timer
@@ -57,8 +59,23 @@ function startTimer () { //we want to start a countdown timer
   }, 1000) 
 };
 
-function showQuestion () {
-}
+function showQuestion1 () {//simply add to the .container (somehow)
+  let box1 = document.querySelector("#box1");
+  box1.textContent = quizQuestions[0].question;//access the nested object
+  
+  let box2 = document.querySelector("#box2");
+  box2.textContent = quizQuestions[0].answer1;
+  let box3 = document.querySelector("#box3");
+  box3.textContent = quizQuestions[0].answer2;
+  let box4 = document.querySelector("#box4");
+  box4.textContent = quizQuestions[0].answer3;
+  let box5 = document.querySelector("#box5");
+  box5.textContent = quizQuestions[0].answer4;
+
+  if (clickBox.target.matches(box4)) {
+    console.log("correct");
+  };
+};
 
 function evalAnswer () {
 
@@ -76,24 +93,11 @@ function endGame () {
 
 }
 
-// - user arrives at the website and sees a central box with a start button below, a timer and high scores somewhere on the page -> create necessary html elements w/ classes or ids to access using js
-// - user starts the quiz by clicking the start button -> eventlistener
-TODO:// - timer starts -> function
-// - multiple choice question is presented to user -> function/ create/modify/append
-// - user clicks on a choice -> eventlistener
-// - evaluates whether choice is right or wrong -> function
-// - display right or wrong -> function 
-// - if question is wrong, timer is reduced by x amount -> function
-// - present user with the next question, and repeat previous 5 steps for each question
-// - when all questions are answered or timer is zero -> end game -> function
-// - **user is presented with form to save initials and score in a list -> eventlistener/function**
-
-
-
 clickBox.addEventListener("click", function(e) {
-  if (e.target.matches("#start")) { //could also declare/use a var.matches()//
+  let click = e.target;
+  if (click.matches("#start")) { //could also declare/use a var.matches()//
     startTimer();
-    showQuestion();
+    showQuestion1();
   }
 })
 
