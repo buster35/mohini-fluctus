@@ -17,7 +17,7 @@ let question1 = {
     "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom they referred to as Kramer. What is this character's first name?",
   answer1: "Charles",
   answer2: "Robert",
-  answer3: "Cosmo", //this is correct; can I put something in the object to signify this?
+  answer3: "Cosmo", //TODO://this is correct; can I put something in the object to signify this? try evalAnswer();
   answer4: "Kermit",
 };
 
@@ -55,7 +55,7 @@ let question5 = {
   answer4: "Trick question; any method of ingesting coffee is the best!", //this is correct
 };
 
-let quizQuestions = [question1, question2, question3, question4, question5]; //now we have an array of objects
+let quizQuestions = [question1, question2, question3, question4, question5];
 
 let quizTimer;
 
@@ -90,7 +90,10 @@ function showAnswers() {
   ansbutton4.textContent = answer4;
 }
 
-function evalAnswer() {} //if/then statements
+function evalAnswer() {
+  if (ansbutton3)...
+  // console.log("hi"); //working; every click event on buttons registers "hi"
+} TODO://if/then statements
 
 function answerResponse() {}
 
@@ -107,8 +110,10 @@ clickBox.addEventListener("click", function (e) {
     showQuestion();
   } 
   
-  else if (click.matches("#start") && qTracker >= 0) {
-    location.reload(); //try to reset page
+  else if (click.matches("#start") && qTracker >= 0) { TODO://how to reset game on click event?
+    qTracker = 0;
+    quizQuestions[0]
+    return;
   }
   
   else if (click.matches(".answerBox")) {
