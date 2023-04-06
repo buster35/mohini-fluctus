@@ -2,12 +2,14 @@ let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
 let choiceButton = document.querySelector(".answerBox");
-let qTracker = 0;
+
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
 let ansbutton2 = document.querySelector("#ansbutton2");
 let ansbutton3 = document.querySelector("#ansbutton3");
 let ansbutton4 = document.querySelector("#ansbutton4");
+
+let qTracker = 0;
 
 //Quiz Questions//
 let question1 = {
@@ -53,12 +55,11 @@ let question5 = {
   answer4: "Trick question; any method of ingesting coffee is the best!", //this is correct
 };
 
-let quizQuestions = [question1, question2, question3, question4, question5]; //now we have an array of objects//can we loop through these after a click event occurs in #box2 - #box5??
+let quizQuestions = [question1, question2, question3, question4, question5]; //now we have an array of objects
 
 let quizTimer;
 
 function startTimer() {
-  //we want to start a countdown timer
   quizTimer = 60;
   let timerInterval = setInterval(function () {
     quizTimer--;
@@ -68,6 +69,13 @@ function startTimer() {
       endGame();
     }
   }, 1000);
+}
+
+function showQuestion() {
+  startBtn.innerText = "Reset";
+  let text = quizQuestions[qTracker].question;
+  questionEl.innerText = text;
+  showAnswers();
 }
 
 function showAnswers() {
@@ -82,33 +90,36 @@ function showAnswers() {
   ansbutton4.textContent = answer4;
 }
 
-function showQuestion() {
-  let text = quizQuestions[qTracker].question;
- 
-  questionEl.innerText = text;
-  showAnswers();
-}
-
-function evalAnswer() {}
+function evalAnswer() {} //if/then statements
 
 function answerResponse() {}
 
 function reduceTime() {}
 
-function endGame() {}
+function endGame() {
+  console.log("test");
+}
 
 clickBox.addEventListener("click", function (e) {
   let click = e.target;
   if (click.matches("#start")) {
     startTimer();
     showQuestion();
-  } else if (click.matches(".answerBox")) {
-    //click button on quiz -> move to next question, analyze right/wrong,
-    console.log("correct");
-    evalAnswer();
+  } 
+  
+  else if (click.matches("#start") && qTracker >= 0) {
+    location.reload(); //try to reset page
+  }
+  
+  else if (click.matches(".answerBox")) {
+    if (qTracker == 4) {
+      //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
+      window.clearInterval(qTracker);
+      endGame();
+      return;
+    }
     qTracker++;
-    showQuestion();
+    showQuestion(); //showQuestion also invokes showAnswers()//
+    evalAnswer();
   }
 });
-
-// for (i = 0;)
