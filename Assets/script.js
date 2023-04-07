@@ -1,7 +1,7 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
-let choiceButton = document.querySelector(".answerbox");
+let choiceButton = document.getElementsByClassName(".answerbox");
 
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
@@ -11,6 +11,9 @@ let ansbutton4 = document.querySelector("#ansbutton4");
 
 let correct = document.querySelector("#correct-box");
 let incorrect = document.querySelector("#incorrect-box");
+
+// let dataSet = choiceButton.dataset["visible"];
+
 
 let qTracker = 0;
 
@@ -101,8 +104,12 @@ function answerResponse() {}
 
 function reduceTime() {}
 
-function endGame() {//dataset; set id attribute for container, or class attribute for answerBox
+function endGame() {//dataset; set id attribute for container,
   console.log("test"); //working!
+  if (choiceButton.style.visibility === "visible") {
+    choiceButton.style.visibility = "hidden"
+  }
+
 }
 
 clickBox.addEventListener("click", function (e) {
@@ -136,7 +143,7 @@ clickBox.addEventListener("click", function (e) {
     qTracker++
   }
   
-  else if (qTracker >= 5) {
+  else if (qTracker > 4) { //TODO:try inserting this in previous if/else statement//
     //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
     window.clearInterval(qTracker);
     endGame();
