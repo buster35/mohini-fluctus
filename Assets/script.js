@@ -1,7 +1,7 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
-let choiceButton = document.getElementsByClassName(".answerbox");
+let choiceButton = document.querySelectorAll(".answerbox");
 
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
@@ -12,12 +12,10 @@ let ansbutton4 = document.querySelector("#ansbutton4");
 let correct = document.querySelector("#correct-box");
 let incorrect = document.querySelector("#incorrect-box");
 
-// let dataSet = choiceButton.dataset["visible"];
-
 
 let qTracker = 0;
 
-//Quiz Questions//
+//Quiz Questions// //function to "call" if incorrect answer is selected?
 let question1 = {
   question:
     "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom they referred to as Kramer. What is this character's first name?",
@@ -97,6 +95,7 @@ function showAnswers() {
 }
 
 function evalAnswers() {
+  
   console.log("hi"); //working
 }
 
@@ -104,14 +103,9 @@ function answerResponse() {}
 
 function reduceTime() {}
 
-function endGame() {//dataset; set id attribute for container,
+function endGame() {
+  
   console.log("test"); //working!
-  if (ansbutton1.style.visibility === "visible") {
-    ansbutton1.style.visibility = "hidden"
-  }
-  else {
-    ansbutton1.style.visibility = "visible"
-  }
 
 }
 
@@ -147,11 +141,3 @@ clickBox.addEventListener("click", function (e) {
     endGame();
     return;
 }console.log(qTracker);});
-
-// else if (click.matches(".answerBox")) {
-  //   showQuestion();
-  //   evalAnswers();
-  // } //showQuestion also invokes showAnswers()//
-
-  // } else (qTracker >= 4) { //TODO:try inserting this in previous if/else statement//
-  //   //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
