@@ -127,7 +127,7 @@ clickBox.addEventListener("click", function (e) {
     correct.innerText = "Correct!";
     qTracker++
     showQuestion();
-  } else if (qTracker === 3 && click.matches("#ansbutton3")) {
+  } else if (qTracker === 3 && click.matches("#ansbutton4")) {
     correct.innerText = "Correct!";
     qTracker++
     showQuestion();
@@ -143,7 +143,7 @@ clickBox.addEventListener("click", function (e) {
     evalAnswers();
   } //showQuestion also invokes showAnswers()//
   
-  else if (qTracker === 5) {
+  else if (qTracker > 5) {
     //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
     window.clearInterval(qTracker);
     endGame();
