@@ -1,7 +1,7 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
-let choiceButton = document.querySelector(".answerBox");
+let choiceButton = document.querySelector(".answerbox");
 
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
@@ -101,7 +101,7 @@ function answerResponse() {}
 
 function reduceTime() {}
 
-function endGame() {
+function endGame() {//dataset; set id attribute for container, or class attribute for answerBox
   console.log("test"); //working!
 }
 
@@ -135,14 +135,8 @@ clickBox.addEventListener("click", function (e) {
     correct.innerText = "Correct!";
     qTracker++
   }
-   
   
-  // else if (click.matches(".answerBox")) {
-  //   showQuestion();
-  //   evalAnswers();
-  // } //showQuestion also invokes showAnswers()//
-  
-  else if (qTracker > 5) {
+  else if (qTracker >= 5) {
     //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
     window.clearInterval(qTracker);
     endGame();
@@ -151,4 +145,7 @@ clickBox.addEventListener("click", function (e) {
   console.log(qTracker);
 });
 
-
+// else if (click.matches(".answerBox")) {
+  //   showQuestion();
+  //   evalAnswers();
+  // } //showQuestion also invokes showAnswers()//
