@@ -67,7 +67,7 @@ function startTimer() {
   let timerInterval = setInterval(function () {
     quizTimer--;
     timeCount.textContent = quizTimer;
-    if (quizTimer <= 0) {
+    if (quizTimer === 0) {
       clearInterval(timerInterval);
       endGame();
     }
@@ -95,14 +95,19 @@ function showAnswers() {
 function correctAnswers() {
   flashBox.innerText = "Correct!";
   showQuestion();
-  return;
+  console.log(qTracker)
+  
 };
 
 function incorrectAnswers() {
+  if (flashBox.innerText !== "") {
+    flashBox.innerText = "Incorrect!"
+  }
+  console.log(qTracker)
+  showQuestion();
 
+ 
 }
-
-function answerResponse() {}
 
 function reduceTime() {}
 
@@ -114,58 +119,43 @@ function endGame() {
 
 clickBox.addEventListener("click", function (e) {
   let click = e.target;
-  if (click.matches("#start") && qTracker === 0) {
+  if (click.matches("#start")) {
+    qTracker = 0;
     startTimer();
-    showQuestion();
+    showQuestion(); //works
   } 
   
-  else if (click.matches("#start") && qTracker > 0) {
+  if (click.matches("#start") && qTracker > 0) {
     qTracker = 0;
     quizQuestions[0];
+    flashBox.innerText = "";
     return;
   } 
   
-  if (qTracker <= 1 && click.matches("#ansbutton3")) {
-    qTracker++;
+  if (click.matches("#ansbutton3") && qTracker === 0) {
+    qTracker = 1;
     correctAnswers()
-  } else {
-    qTracker++
-    incorrectAnswers()
-      }
+  }
 
-  if (qTracker === 1 && click.matches("#ansbutton2")) {
-    qTracker++
+  else if (click.matches("#ansbutton2") && qTracker === 1) {
+    qTracker = 2;
     correctAnswers()
-  } else {
-    qTracker++
-    incorrectAnswers()
   }
   
-  if (qTracker === 2 && click.matches("#ansbutton2")) {
-    qTracker++
+  else if (click.matches("#ansbutton2") && qTracker === 2) {
+    qTracker = 3;
     correctAnswers()
-  } else {
-    qTracker++
-    incorrectAnswers()
-  } 
+  }
       
-  if (qTracker === 3 && click.matches("#ansbutton4")) {
-    qTracker++
+  else if (click.matches("#ansbutton4") && qTracker === 3) { 
+    qTracker = 4;  
     correctAnswers()
-    } else {
-      qTracker++
-      incorrectAnswers()
     }
-  
-  if (qTracker === 4 && click.matches("#ansbutton4")) {
-    qTracker = 0;
+    
+  else if (click.matches("#ansbutton4") && qTracker === 4) {
     correctAnswers()
-    endGame();
-    return;
-  } else {
-    qTracker = 0
-    incorrectAnswers()
     endGame()
-    return;
   }
-});
+  }
+);
+console.log(qTracker);
