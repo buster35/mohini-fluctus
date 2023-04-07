@@ -9,6 +9,9 @@ let ansbutton2 = document.querySelector("#ansbutton2");
 let ansbutton3 = document.querySelector("#ansbutton3");
 let ansbutton4 = document.querySelector("#ansbutton4");
 
+let correct = document.querySelector("#correct-box");
+let incorrect = document.querySelector("#incorrect-box");
+
 let qTracker = 0;
 
 //Quiz Questions//
@@ -17,7 +20,7 @@ let question1 = {
     "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom they referred to as Kramer. What is this character's first name?",
   answer1: "Charles",
   answer2: "Robert",
-  answer3: "Cosmo", //TODO://this is correct; can I put something in the object to signify this? try evalAnswer();
+  answer3: "Cosmo",
   answer4: "Kermit",
 };
 
@@ -90,17 +93,16 @@ function showAnswers() {
   ansbutton4.textContent = answer4;
 }
 
-function evalAnswer() {
-  if (ansbutton3)...
-  // console.log("hi"); //working; every click event on buttons registers "hi"
-} TODO://if/then statements
+function evalAnswers() {
+  console.log("hi"); //working
+}
 
 function answerResponse() {}
 
 function reduceTime() {}
 
 function endGame() {
-  console.log("test");
+  console.log("test"); //working!
 }
 
 clickBox.addEventListener("click", function (e) {
@@ -108,23 +110,45 @@ clickBox.addEventListener("click", function (e) {
   if (click.matches("#start")) {
     startTimer();
     showQuestion();
-  } 
-  
-  else if (click.matches("#start") && qTracker >= 0) { TODO://how to reset game on click event?
-    qTracker = 0;
-    quizQuestions[0]
+  } else if (click.matches("#start") && qTracker >= 0) {
+    //how to reset game on click event?
+    TODO: qTracker = 0;
+    quizQuestions[0];
     return;
+  } else if (qTracker <= 1 && click.matches("#ansbutton3")) {
+    correct.innerText = "Correct!";
+    qTracker++;
+    showQuestion();
+  } else if (qTracker === 1 && click.matches("#ansbutton2")) {
+    correct.innerText = "Correct!";
+    qTracker++
+    showQuestion();
+  } else if (qTracker === 2 && click.matches("#ansbutton2")) {
+    correct.innerText = "Correct!";
+    qTracker++
+    showQuestion();
+  } else if (qTracker === 3 && click.matches("#ansbutton3")) {
+    correct.innerText = "Correct!";
+    qTracker++
+    showQuestion();
+  } else if (qTracker === 4 && click.matches("#ansbutton4")) {
+    correct.innerText = "Correct!";
+    qTracker++
+    showQuestion();
   }
+   
   
   else if (click.matches(".answerBox")) {
-    if (qTracker == 4) {
-      //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
-      window.clearInterval(qTracker);
-      endGame();
-      return;
-    }
-    qTracker++;
-    showQuestion(); //showQuestion also invokes showAnswers()//
-    evalAnswer();
+    showQuestion();
+    evalAnswers();
+  } //showQuestion also invokes showAnswers()//
+  
+  else if (qTracker === 5) {
+    //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
+    window.clearInterval(qTracker);
+    endGame();
+    return;
   }
 });
+
+console.log(qTracker);
