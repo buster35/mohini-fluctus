@@ -134,14 +134,13 @@ clickBox.addEventListener("click", function (e) {
   } else if (qTracker === 4 && click.matches("#ansbutton4")) {
     correct.innerText = "Correct!";
     qTracker++
-    showQuestion();
   }
    
   
-  else if (click.matches(".answerBox")) {
-    showQuestion();
-    evalAnswers();
-  } //showQuestion also invokes showAnswers()//
+  // else if (click.matches(".answerBox")) {
+  //   showQuestion();
+  //   evalAnswers();
+  // } //showQuestion also invokes showAnswers()//
   
   else if (qTracker > 5) {
     //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
@@ -149,6 +148,7 @@ clickBox.addEventListener("click", function (e) {
     endGame();
     return;
   }
+  console.log(qTracker);
 });
 
-console.log(qTracker);
+
