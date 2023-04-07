@@ -106,8 +106,11 @@ function reduceTime() {}
 
 function endGame() {//dataset; set id attribute for container,
   console.log("test"); //working!
-  if (choiceButton.style.visibility === "visible") {
-    choiceButton.style.visibility = "hidden"
+  if (ansbutton1.style.visibility === "visible") {
+    ansbutton1.style.visibility = "hidden"
+  }
+  else {
+    ansbutton1.style.visibility = "visible"
   }
 
 }
@@ -140,19 +143,15 @@ clickBox.addEventListener("click", function (e) {
     showQuestion();
   } else if (qTracker === 4 && click.matches("#ansbutton4")) {
     correct.innerText = "Correct!";
-    qTracker++
-  }
-  
-  else if (qTracker > 4) { //TODO:try inserting this in previous if/else statement//
-    //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
-    window.clearInterval(qTracker);
+    qTracker = 0;
     endGame();
     return;
-  }
-  console.log(qTracker);
-});
+}console.log(qTracker);});
 
 // else if (click.matches(".answerBox")) {
   //   showQuestion();
   //   evalAnswers();
   // } //showQuestion also invokes showAnswers()//
+
+  // } else (qTracker >= 4) { //TODO:try inserting this in previous if/else statement//
+  //   //at qTracker == 4 stops console from throwing error by preventing access to non-existant 5th question//
