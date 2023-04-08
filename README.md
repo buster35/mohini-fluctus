@@ -9,7 +9,7 @@ At the end of the quiz you will be able to input your initials and post them to 
 
 GitHub Repo: https://github.com/buster35/mohini-fluctus
 
-GitHub Pages: 
+GitHub Pages: https://buster35.github.io/mohini-fluctus/
 
 ## Screenshot
 
