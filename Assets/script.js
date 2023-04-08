@@ -1,6 +1,7 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
+let timerBox = document.querySelector("#timer-box");
 
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
@@ -19,7 +20,8 @@ let initialField = document.querySelector("#userinitials");
 let initialButton = document.querySelector("#initialButton");
 let scoreTable = document.querySelector("#scoretable");
 
-let 
+let storedInitials = document.querySelector("#storedinitials");
+let storedScore = document.querySelector("#storedscore");
 
 //Quiz Questions//
 let question1 = {
@@ -74,7 +76,7 @@ function startTimer() {
   let timerInterval = setInterval(function () {
     quizTimer--;
     timeCount.textContent = quizTimer;
-    if (quizTimer === 0) {
+    if (quizTimer <= 0) {
       clearInterval(timerInterval)
       endGame()
     }
@@ -108,7 +110,7 @@ function correctAnswers() {
 
 function incorrectAnswers() { //working
   flashBox.innerText = "Incorrect!"
-  if (qTracker < 4) {
+  if (qTracker < 5) {
     showQuestion()
   }
   reduceTime();
@@ -126,6 +128,21 @@ function storeScore() {
 function endGame() {
 clickBox.style.visibility = "hidden"
 highScore.style.visibility = "visible"
+timerBox.textContent = ""
+flashBox.textContent = ""
+return;
+}
+
+function loadSaved() {
+  let savedData = localStorage.getItem("user")
+
+  if (savedData) {
+    let finalInitials = JSON.parse(savedData)
+    document.getElementById("storedinitials").value = finalInitials
+  }
+
+  let finalScore = localStorage.getItem("userscore")
+    document.getElementById("storedscore").value = finalScore
 }
 
 clickBox.addEventListener("click", function (e) {
@@ -179,7 +196,15 @@ clickBox.addEventListener("click", function (e) {
   }
 );
 
-initialButton.addEventListener("submit", function(e) {
+initialButton.addEventListener("click", function(e) {
   e.preventDefault()
+  let initialStr = initialField.value
+  let user = {
+    initials: initialStr,
+  }
+  let stringedInitial = JSON.stringify(user)
+  localStorage.setItem("user", stringedInitial)
+  highScore.style.visibility = "hidden"
   scoreTable.style.visibility = "initial"
+  loadSaved()
 });
