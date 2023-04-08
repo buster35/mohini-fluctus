@@ -51,6 +51,10 @@ body {
   font-size: 1rem;
 }
 
+#scorebox {
+  position: absolute;
+  font-size: 20px;
+}
 
 .answerbox {
   cursor: pointer;

@@ -1,7 +1,6 @@
 let startBtn = document.querySelector("#start");
 let clickBox = document.querySelector(".container");
 let timeCount = document.querySelector("#time");
-let choiceButton = document.querySelectorAll(".answerbox");
 
 let questionEl = document.querySelector("#question");
 let ansbutton1 = document.querySelector("#ansbutton1");
@@ -10,8 +9,9 @@ let ansbutton3 = document.querySelector("#ansbutton3");
 let ansbutton4 = document.querySelector("#ansbutton4");
 
 let flashBox = document.querySelector("#correct-box");
+let scoreBox = document.querySelector("#scorebox");
 
-
+let score = 0;
 let qTracker = 0;
 
 //Quiz Questions// //function to "call" if incorrect answer is selected?
@@ -93,21 +93,26 @@ function showAnswers() {
 }
 
 function correctAnswers() {
-  flashBox.innerText = "Correct!"; //working
+  flashBox.innerText = "Correct!"
+  scoreBox.textContent = score++ //working
   showQuestion();
 };
 
 function incorrectAnswers() { //working
-  flashBox.innerText = "Incorrect!";
+  flashBox.innerText = "Incorrect!"
   showQuestion();
+  reduceTime();
 }
 
-function reduceTime() {}
+function reduceTime() {
+  quizTimer = quizTimer - 15;
+}
 
 function endGame() {
+//store score in local storage
+//bring up high scores page -> replacing .container?
 
-
-  console.log("test"); //working!
+console.log("test"); //working!
 
 }
 
@@ -115,6 +120,7 @@ clickBox.addEventListener("click", function (e) { //WORKING
   let click = e.target;
 
   if (click.matches("#start")) {
+    score++
     qTracker = 0
     startTimer()
     showQuestion();
@@ -149,10 +155,12 @@ clickBox.addEventListener("click", function (e) { //WORKING
   else if (click.matches("#ansbutton4") && qTracker === 4) {
     correctAnswers()
     endGame()
+    return
   }
   else {
     qTracker++
     incorrectAnswers()
+    return;
   }
   }
 );
