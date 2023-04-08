@@ -68,8 +68,8 @@ function startTimer() {
     quizTimer--;
     timeCount.textContent = quizTimer;
     if (quizTimer === 0) {
-      clearInterval(timerInterval);
-      endGame();
+      clearInterval(timerInterval)
+      endGame()
     }
   }, 1000);
 }
@@ -93,62 +93,56 @@ function showAnswers() {
 }
 
 function correctAnswers() {
-  flashBox.innerText = "Correct!";
+  flashBox.innerText = "Correct!"; //working
   showQuestion();
-  console.log(qTracker)
-  
 };
 
-function incorrectAnswers() {
-  if (flashBox.innerText !== "") {
-    flashBox.innerText = "Incorrect!"
-  }
-  console.log(qTracker)
+function incorrectAnswers() { //working
+  flashBox.innerText = "Incorrect!";
   showQuestion();
-
- 
 }
 
 function reduceTime() {}
 
 function endGame() {
 
+
   console.log("test"); //working!
 
 }
 
-clickBox.addEventListener("click", function (e) {
+clickBox.addEventListener("click", function (e) { //WORKING
   let click = e.target;
+
   if (click.matches("#start")) {
-    qTracker = 0;
-    startTimer();
-    showQuestion(); //works
+    qTracker = 0
+    startTimer()
+    showQuestion();
   } 
   
-  if (click.matches("#start") && qTracker > 0) {
+  else if (click.matches("#start") && qTracker > 0) {
     qTracker = 0;
-    quizQuestions[0];
-    flashBox.innerText = "";
-    return;
-  } 
+    quizQuestions[0]
+    flashBox.innerText = ""
+  }
   
-  if (click.matches("#ansbutton3") && qTracker === 0) {
-    qTracker = 1;
+  else if (click.matches("#ansbutton3") && qTracker === 0) {
+    qTracker = 1
     correctAnswers()
   }
 
   else if (click.matches("#ansbutton2") && qTracker === 1) {
-    qTracker = 2;
+    qTracker = 2
     correctAnswers()
   }
   
   else if (click.matches("#ansbutton2") && qTracker === 2) {
-    qTracker = 3;
+    qTracker = 3
     correctAnswers()
   }
       
   else if (click.matches("#ansbutton4") && qTracker === 3) { 
-    qTracker = 4;  
+    qTracker = 4
     correctAnswers()
     }
     
@@ -156,6 +150,9 @@ clickBox.addEventListener("click", function (e) {
     correctAnswers()
     endGame()
   }
+  else {
+    qTracker++
+    incorrectAnswers()
+  }
   }
 );
-console.log(qTracker);
