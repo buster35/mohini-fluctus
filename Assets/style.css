@@ -81,8 +81,9 @@ body {
 }
 
 #scoretable {
-  position: relative;
+  position: absolute;
   text-align: center;
-  font-size: 20px;
+  font-size: 3rem;
   width:50%;
+  height:25%;
 }

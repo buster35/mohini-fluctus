@@ -135,14 +135,10 @@ return;
 
 function loadSaved() {
   let savedData = localStorage.getItem("user")
-
-  if (savedData) {
-    let finalInitials = JSON.parse(savedData)
-    document.getElementById("storedinitials").value = finalInitials
-  }
-
+  let finalInitials = JSON.parse(savedData)
+  document.getElementById("storedinitials").innerText = finalInitials
   let finalScore = localStorage.getItem("userscore")
-    document.getElementById("storedscore").value = finalScore
+  document.getElementById("storedscore").innerText = finalScore
 }
 
 clickBox.addEventListener("click", function (e) {
