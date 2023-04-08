@@ -14,6 +14,10 @@ let scoreBox = document.querySelector("#scorebox");
 let score = 0;
 let qTracker = 0;
 
+let highScore = document.querySelector("#highscore");
+let initialField = document.querySelector("#userinitials");
+let initialButton = document.querySelector("#initialButton");
+
 //Quiz Questions// //function to "call" if incorrect answer is selected?
 let question1 = {
   question:
@@ -96,6 +100,7 @@ function correctAnswers() {
   flashBox.innerText = "Correct!"
   scoreBox.textContent = score++ //working
   showQuestion();
+  
 };
 
 function incorrectAnswers() { //working
@@ -108,8 +113,13 @@ function reduceTime() {
   quizTimer = quizTimer - 15;
 }
 
+function storeScore() {
+  let stringedScore = JSON.stringify(score)
+  localStorage.setItem("userscore", stringedScore)
+}
+
 function endGame() {
-//store score in local storage
+//hide answerboxes/show form
 //bring up high scores page -> replacing .container?
 
 console.log("test"); //working!
@@ -118,19 +128,21 @@ console.log("test"); //working!
 
 clickBox.addEventListener("click", function (e) { //WORKING
   let click = e.target;
-
-  if (click.matches("#start")) {
-    score++
-    qTracker = 0
-    startTimer()
-    showQuestion();
-  } 
   
-  else if (click.matches("#start") && qTracker > 0) {
-    qTracker = 0;
+  if (click.matches("#start") && qTracker > 0) {
+    scoreBox.textContent = ""
+    qTracker = 0
     quizQuestions[0]
     flashBox.innerText = ""
-  }
+    quizTimer = 60
+    showQuestion()
+
+  } else if (click.matches("#start")) {
+    score++
+    qTracker = 0
+    showQuestion()
+    startTimer()
+  } 
   
   else if (click.matches("#ansbutton3") && qTracker === 0) {
     qTracker = 1
@@ -154,13 +166,18 @@ clickBox.addEventListener("click", function (e) { //WORKING
     
   else if (click.matches("#ansbutton4") && qTracker === 4) {
     correctAnswers()
+    storeScore()
     endGame()
     return
   }
   else {
     qTracker++
-    incorrectAnswers()
-    return;
+    incorrectAnswers() //working
   }
   }
 );
+
+initialButton.addEventListener("submit", function(e) {
+  e.preventDefault()
+  processData()
+});
