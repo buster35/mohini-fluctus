@@ -74,6 +74,8 @@ body {
   margin-bottom: 20px;
 }
 
-#submit {
-  align-self: baseline;
+#highscore {
+  font-size: 20px;
+  border-radius: 12px;
+  padding: 14px 40px;
 }

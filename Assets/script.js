@@ -17,8 +17,11 @@ let qTracker = 0;
 let highScore = document.querySelector("#highscore");
 let initialField = document.querySelector("#userinitials");
 let initialButton = document.querySelector("#initialButton");
+let scoreTable = document.querySelector("#scoretable");
 
-//Quiz Questions// //function to "call" if incorrect answer is selected?
+let 
+
+//Quiz Questions//
 let question1 = {
   question:
     "In the popular 90's sitcom Seinfeld, Jerry Seinfeld had a neighbor across the hall whom they referred to as Kramer. What is this character's first name?",
@@ -105,7 +108,9 @@ function correctAnswers() {
 
 function incorrectAnswers() { //working
   flashBox.innerText = "Incorrect!"
-  showQuestion();
+  if (qTracker < 4) {
+    showQuestion()
+  }
   reduceTime();
 }
 
@@ -114,19 +119,16 @@ function reduceTime() {
 }
 
 function storeScore() {
-  let stringedScore = JSON.stringify(score)
+  let stringedScore = JSON.stringify(score - 1)
   localStorage.setItem("userscore", stringedScore)
 }
 
 function endGame() {
-//hide answerboxes/show form
-//bring up high scores page -> replacing .container?
-
-console.log("test"); //working!
-
+clickBox.style.visibility = "hidden"
+highScore.style.visibility = "visible"
 }
 
-clickBox.addEventListener("click", function (e) { //WORKING
+clickBox.addEventListener("click", function (e) {
   let click = e.target;
   
   if (click.matches("#start") && qTracker > 0) {
@@ -179,5 +181,5 @@ clickBox.addEventListener("click", function (e) { //WORKING
 
 initialButton.addEventListener("submit", function(e) {
   e.preventDefault()
-  processData()
+  scoreTable.style.visibility = "initial"
 });

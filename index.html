@@ -28,7 +28,7 @@
       <div><p>User Score: <span id="scorebox">0</span></p></div>
     </div>
 
-    <div class="container">
+    <div class="container" style="visibility: initial">
       <div class="button">
         <button id="start" type="button">Let's Start!</button>
       </div>
@@ -38,12 +38,23 @@
       <button class="answerbox" data-state="visible" type="button" id="ansbutton3" ></button>
       <button class="answerbox" data-state="visible" type="button" id="ansbutton4" ></button>
 
-      <div id="highscore" style="visibility:initial"><form><label for="userinitials">User Initials:</label><br>
+      <div id="highscore" style="visibility:hidden"><form><label for="userinitials">User Initials:</label><br>
       <input type ="text" id="userinitials" name="userinitials"><br>
       <button type="button" id="initialButton">Submit</button></form></div>
       
     </div>
-
+    <div id="scoretable" style="visibility:hidden">
+    <table>
+      <th>
+        <th>Initials</th>
+        <th>Score</th>
+      </th>
+      <tr>
+        <td id="storedinitials"></td>
+        <td id="storedscore"></td>
+        
+      </tr>
+    </table></div>
     <script src="Assets/script.js"></script>
   </body>
 </html>
