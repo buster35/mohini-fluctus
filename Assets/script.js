@@ -126,8 +126,8 @@ function storeScore() {
 }
 
 function endGame() {
-clickBox.style.visibility = "hidden"
-highScore.style.visibility = "visible"
+clickBox.style.display = "none"
+highScore.setAttribute("display", "block")
 timerBox.textContent = ""
 flashBox.textContent = ""
 return;
@@ -144,7 +144,7 @@ function loadSaved() {
 clickBox.addEventListener("click", function (e) {
   let click = e.target;
   
-  if (click.matches("#start") && qTracker > 0) {
+  if (click.matches("#start") && qTracker > 0) { //reset button for after the quiz starts//
     scoreBox.textContent = ""
     qTracker = 0
     quizQuestions[0]
@@ -153,6 +153,7 @@ clickBox.addEventListener("click", function (e) {
     showQuestion()
 
   } else if (click.matches("#start")) {
+    
     score++
     qTracker = 0
     showQuestion()
@@ -200,7 +201,7 @@ initialButton.addEventListener("click", function(e) {
   }
   let stringedInitial = JSON.stringify(user)
   localStorage.setItem("user", stringedInitial)
-  highScore.style.visibility = "hidden"
-  scoreTable.style.visibility = "initial"
+  highScore.style.display = "none"
+  scoreTable.style.display = "block"
   loadSaved()
 });
