@@ -77,8 +77,8 @@ function startTimer() {
     quizTimer--;
     timeCount.textContent = quizTimer;
     if (quizTimer <= 0) {
-      clearInterval(timerInterval)
-      endGame()
+      clearInterval(timerInterval);
+      endGame();
     }
   }, 1000);
 }
@@ -102,16 +102,15 @@ function showAnswers() {
 }
 
 function correctAnswers() {
-  flashBox.innerText = "Correct!"
-  scoreBox.textContent = score++ //working
+  flashBox.innerText = "Correct!";
+  scoreBox.textContent = score++;
   showQuestion();
-  
-};
+}
 
-function incorrectAnswers() { //working
-  flashBox.innerText = "Incorrect!"
+function incorrectAnswers() {
+  flashBox.innerText = "Incorrect!";
   if (qTracker < 5) {
-    showQuestion()
+    showQuestion();
   }
   reduceTime();
 }
@@ -121,87 +120,74 @@ function reduceTime() {
 }
 
 function storeScore() {
-  let stringedScore = JSON.stringify(score - 1)
-  localStorage.setItem("userscore", stringedScore)
+  let stringedScore = JSON.stringify(score - 1);
+  localStorage.setItem("userscore", stringedScore);
 }
 
 function endGame() {
-clickBox.style.display = "none"
-highScore.setAttribute("display", "block")
-timerBox.textContent = ""
-flashBox.textContent = ""
-return;
+  clickBox.style.visibility = "collapse";
+  highScore.style.visibility = "initial";
+  timerBox.textContent = "";
+  flashBox.textContent = "";
+  return;
 }
 
 function loadSaved() {
-  let savedData = localStorage.getItem("user")
-  let finalInitials = JSON.parse(savedData)
-  document.getElementById("storedinitials").innerText = finalInitials
-  let finalScore = localStorage.getItem("userscore")
-  document.getElementById("storedscore").innerText = finalScore
+  let savedData = localStorage.getItem("user");
+  finalInitials = JSON.parse(savedData);
+  document.getElementById("storedinitials").innerText = finalInitials.initials;
+  let finalScore = localStorage.getItem("userscore");
+  document.getElementById("storedscore").innerText = finalScore;
 }
 
 clickBox.addEventListener("click", function (e) {
   let click = e.target;
-  
-  if (click.matches("#start") && qTracker > 0) { //reset button for after the quiz starts//
-    scoreBox.textContent = ""
-    qTracker = 0
-    quizQuestions[0]
-    flashBox.innerText = ""
-    quizTimer = 60
-    showQuestion()
 
+  if (click.matches("#start") && qTracker > 0) {
+    //reset button for after the quiz starts//
+    scoreBox.textContent = "";
+    qTracker = 0;
+    quizQuestions[0];
+    flashBox.innerText = "";
+    quizTimer = 60;
+    showQuestion();
   } else if (click.matches("#start")) {
-    
-    score++
-    qTracker = 0
-    showQuestion()
-    startTimer()
-  } 
-  
-  else if (click.matches("#ansbutton3") && qTracker === 0) {
-    qTracker = 1
-    correctAnswers()
+    score++;
+    qTracker = 0;
+    showQuestion();
+    startTimer();
+  } else if (click.matches("#ansbutton3") && qTracker === 0) {
+    qTracker = 1;
+    correctAnswers();
+  } else if (click.matches("#ansbutton2") && qTracker === 1) {
+    qTracker = 2;
+    correctAnswers();
+  } else if (click.matches("#ansbutton2") && qTracker === 2) {
+    qTracker = 3;
+    correctAnswers();
+  } else if (click.matches("#ansbutton4") && qTracker === 3) {
+    qTracker = 4;
+    correctAnswers();
+  } else if (click.matches("#ansbutton4") && qTracker === 4) {
+    correctAnswers();
+    storeScore();
+    endGame();
+    return;
+  } else {
+    qTracker++;
+    incorrectAnswers();
   }
+});
 
-  else if (click.matches("#ansbutton2") && qTracker === 1) {
-    qTracker = 2
-    correctAnswers()
-  }
-  
-  else if (click.matches("#ansbutton2") && qTracker === 2) {
-    qTracker = 3
-    correctAnswers()
-  }
-      
-  else if (click.matches("#ansbutton4") && qTracker === 3) { 
-    qTracker = 4
-    correctAnswers()
-    }
-    
-  else if (click.matches("#ansbutton4") && qTracker === 4) {
-    correctAnswers()
-    storeScore()
-    endGame()
-    return
-  }
-  else {
-    qTracker++
-    incorrectAnswers() //working
-  }
-  }
-);
-
-initialButton.addEventListener("click", function(e) {
-  e.preventDefault()
-  let initialStr = initialField.value
+initialButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  let initialStr = initialField.value;
   let user = {
     initials: initialStr,
-  }
-  let stringedInitial = JSON.stringify(user)
-  localStorage.setItem("user", stringedInitial)
-  highScore.style.display = "none"
-  scoreTable.style.display = "block"
-  loadSaved()
+  };
+  let stringedInitial = JSON.stringify(user);
+  localStorage.setItem("user", stringedInitial);
+  highScore.style.visibility = "hidden";
+  scoreTable.style.visibility = "initial";
+  loadSaved();
 });

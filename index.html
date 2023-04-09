@@ -11,50 +11,80 @@
   <body>
     <header class="title">
       <h1>Coding Quiz</h1>
-    <div></div>
+      <div></div>
     </header>
-  
+
     <div class="directions">
       <p id="question">
         This timed quiz is only masquerading as a coding quiz.<br />It's
-        actually a quiz about other stuff.<br />Before you click the Start button, note
-        that your score will be tallied and you will be able to see the results
-        at the end, and will be able to leave your initials on the leaderboard!<br /><span id = "warning">
-        However, answer a question wrong and the countdown timer will knock off
-        a few seconds. Good luck!</span>
+        actually a quiz about other stuff.<br />Before you click the Start
+        button, note that your score will be tallied and you will be able to see
+        the results at the end, and will be able to leave your initials on the
+        leaderboard!<br /><span id="warning">
+          However, answer a question wrong and the countdown timer will knock
+          off a few seconds. Good luck!</span
+        >
       </p>
       <div id="correct-box"></div>
-      <div id="timer-box"><p><span id="time">0</span>  seconds remaining</p></div>
-      <div><p>User Score: <span id="scorebox">0</span></p></div>
+      <div id="timer-box">
+        <p><span id="time">0</span> seconds remaining</p>
+      </div>
+      <div>
+        <p>User Score: <span id="scorebox">0</span></p>
+      </div>
     </div>
 
-    <div class="container" style="display: flex">
+    <div class="container">
       <div class="button">
         <button id="start" type="button">Let's Start!</button>
       </div>
 
-      <button class="answerbox" data-state="visible" type="button" id="ansbutton1" ></button>
-      <button class="answerbox" data-state="visible" type="button" id="ansbutton2" ></button>
-      <button class="answerbox" data-state="visible" type="button" id="ansbutton3" ></button>
-      <button class="answerbox" data-state="visible" type="button" id="ansbutton4" ></button>
+      <button
+        class="answerbox"
+        data-state="visible"
+        type="button"
+        id="ansbutton1"
+      ></button>
+      <button
+        class="answerbox"
+        data-state="visible"
+        type="button"
+        id="ansbutton2"
+      ></button>
+      <button
+        class="answerbox"
+        data-state="visible"
+        type="button"
+        id="ansbutton3"
+      ></button>
+      <button
+        class="answerbox"
+        data-state="visible"
+        type="button"
+        id="ansbutton4"
+      ></button>
 
-      <div id="highscore" ><form><label for="userinitials">User Initials:</label><br>
-      <input type ="text" id="userinitials" name="userinitials"><br>
-      <button type="button" id="initialButton">Submit</button></form></div>
-      
+      <div id="highscore">
+        <form>
+          <label for="userinitials">User Initials:</label><br />
+          <input type="text" id="userinitials" name="userinitials" /><br />
+          <button type="button" id="initialButton">Submit</button>
+        </form>
+      </div>
+
+      <div id="scoretable" style="visibility: hidden">
+        <table>
+          <tr>
+            <th>Initials</th>
+            <th>Score</th>
+          </tr>
+          <tr>
+            <td id="storedinitials" style="font-weight: lighter"></td>
+            <td id="storedscore" style="font-weight: lighter"></td>
+          </tr>
+        </table>
+      </div>
     </div>
-    
-    <div id="scoretable" style="visibility:hidden">
-    <table>
-      <th>
-        <th>Initials</th>
-        <th>Score</th>
-      </th>
-      <tr>
-        <td id="storedinitials"></td>
-        <td id="storedscore"></td>
-      </tr>
-    </table></div>
     <script src="Assets/script.js"></script>
   </body>
 </html>

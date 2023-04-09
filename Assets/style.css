@@ -5,7 +5,7 @@
 
 body {
   font-size: 62.5%;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   height: auto;
 }
 
@@ -28,7 +28,6 @@ body {
 
 .timer-box {
   position: relative;
-
 }
 
 #warning {
@@ -36,7 +35,8 @@ body {
   font-style: oblique;
 }
 
-#correct-box, #incorrect-box {
+#correct-box,
+#incorrect-box {
   font-size: 20px;
 }
 
@@ -49,6 +49,7 @@ body {
   height: 350px;
   width: auto;
   font-size: 1rem;
+  visibility: initial;
 }
 
 #scorebox {
@@ -63,7 +64,8 @@ body {
   padding: 14px 40px;
 }
 
-#submit, #start {
+#submit,
+#start {
   font-size: 20px;
   border-radius: 12px;
   padding: 14px 40px;
@@ -78,15 +80,16 @@ body {
   font-size: 20px;
   border-radius: 12px;
   padding: 14px 40px;
-  display: none;
-  position:absolute;
+  visibility: hidden;
+  position: absolute;
+  height: 60%;
 }
 
 #scoretable {
-  display: block;
+  border: 1px solid;
   position: absolute;
   text-align: center;
-  font-size: 3rem;
-  width:50%;
-  height:25%;
+  table-layout: auto;
+  font-size: 2rem;
+  visibility: hidden;
 }
